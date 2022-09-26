@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Reflection;
+using System.Reflection.Metadata;
 
 namespace CarLotSimulator
 {
@@ -26,7 +29,9 @@ namespace CarLotSimulator
 
 
             var car1 = new Car();
+            CarLot CarLot1 = new CarLot();
 
+            CarLot1.CarList.Add(car1);
             car1.Make = "Porsche";
             car1.Model = "911 Targa 4 GTS";
             car1.Year = "2023";
@@ -47,7 +52,11 @@ namespace CarLotSimulator
             Console.WriteLine("------------------------------------------------------------");
 
 
+
             var car2 = new Car();
+            CarLot CarLot2 = new CarLot();
+
+            CarLot2.CarList.Add(car2);
             {
                 car2.Make = "Chevrolet Corvette";
                 car2.Model = "Z06";
@@ -70,7 +79,24 @@ namespace CarLotSimulator
 
             var car3 = new Car( "Mclaren", "The Speedtail", "2018", "$2,250,000 est.", "No, unless your filthy rich! lol :)", "Yes", "Normal", "Loud");
 
-            car3.PrintStuff();
+            CarLot CarLot3 = new CarLot();
+
+            CarLot3.CarList.Add(car3);
+            foreach (var car in CarLot3.CarList)
+            {
+                car.PrintStuff();
+
+            }
+
+            Console.WriteLine();
+            Console.WriteLine($"Number of cars in the lot: {CarLot.numberOfCars}");
+            Console.WriteLine();
+
+
+
+
+            //OR
+
 
             Console.WriteLine("------------------------------------------------------------");
             Console.WriteLine("Finish 'ps: now your a little bit smarter :)'  ");
